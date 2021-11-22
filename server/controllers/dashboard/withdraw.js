@@ -1,19 +1,19 @@
 const person = require("../../models/models");
 
-const deposit = async (req, res) => {
+const withdraw = async (req, res) => {
+  const { address, amount, email } = req.body;
   let user;
-  let tst;
-  const { email, capital, plan } = req.body;
   try {
     user = await person.updateOne(
       { email },
       {
-        pending: { plan, deposit: capital },
+        "withdrawal.address": address,
+        "withdrawal.amount": amount,
         $push: {
           transactions: {
-            value: capital,
+            value: amount,
             text: "pending",
-            typeO: "deposit",
+            typeO: "withdrawal",
             time:
               new Date().getFullYear() +
               "/" +
@@ -25,14 +25,9 @@ const deposit = async (req, res) => {
         },
       }
     );
-    tst = await person.findOne({ email });
   } catch (err) {
     console.log(err.message);
   }
-  if (user) {
-    return res.json("deposit request made");
-  } else {
-    res.json("error try again");
-  }
+  if (user) return res.json("withdrawal request submitted");
 };
-module.exports = deposit;
+module.exports = withdraw;

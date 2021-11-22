@@ -3,6 +3,7 @@ import '../styles/Home.scss'
 import '../styles/signin.scss'
 import '../styles/signup.scss'
 import '../styles/dashboard.scss'
+import '../styles/services.scss'
 
 import App from 'next/app'
 import {Provider} from 'react-redux'
@@ -15,7 +16,7 @@ class MyApp extends App {
     static async getInitialProps({ Component, ctx }) {
         const appProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
 
-        console.log(appProps);
+        //console.log(appProps);
 
         return {
             appProps: appProps

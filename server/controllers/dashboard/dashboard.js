@@ -1,4 +1,4 @@
-const dashbaord= (req,res)=>{
-   req.body 
-}
-module.exports=dashbaord
+const dashbaord = (req, res) => {
+  req.body;
+};
+module.exports = dashbaord;

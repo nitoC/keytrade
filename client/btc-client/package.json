@@ -27,6 +27,7 @@
     "redux-thunk": "^2.4.0",
     "sass": "^1.43.4",
     "scss": "^0.2.4",
+    "tawkto-react": "^2.0.3",
     "thunk": "^0.0.1"
   },
   "devDependencies": {
